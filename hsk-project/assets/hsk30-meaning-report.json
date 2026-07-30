@@ -1,0 +1,158 @@
+{
+  "generatedAt": "2026-07-24T15:49:14.472Z",
+  "dictionary": {
+    "name": "CVDICT",
+    "source": "https://github.com/ph0ngp/CVDICT",
+    "license": "CC BY-SA 4.0",
+    "headwords": 194602
+  },
+  "total": 11073,
+  "counts": {
+    "1": 301,
+    "2": 203,
+    "3": 506,
+    "4": 1016,
+    "5": 1632,
+    "6": 1810,
+    "7": 5605
+  },
+  "core": {
+    "total": 3658,
+    "changed": 5,
+    "matchedReading": 5,
+    "matchedWord": 3510,
+    "manual": 143,
+    "retained": 0,
+    "suspiciousBefore": 1,
+    "suspiciousAfter": 2
+  },
+  "advanced": {
+    "total": 7415,
+    "changed": 2,
+    "matchedReading": 0,
+    "matchedWord": 7341,
+    "manual": 63,
+    "retained": 11,
+    "suspiciousBefore": 2,
+    "suspiciousAfter": 2
+  },
+  "unresolvedCount": 11,
+  "unresolved": [
+    {
+      "level": 6,
+      "number": 1599,
+      "hanzi": "新能源",
+      "pinyin": "xīn néng yuán",
+      "meaning": "năng lượng mới"
+    },
+    {
+      "level": 6,
+      "number": 1804,
+      "hanzi": "新媒体",
+      "pinyin": "xīn méi tǐ",
+      "meaning": "truyền thông mới"
+    },
+    {
+      "level": 7,
+      "number": 1001,
+      "hanzi": "致力于",
+      "pinyin": "zhìlìyú",
+      "meaning": "cống hiến"
+    },
+    {
+      "level": 7,
+      "number": 1484,
+      "hanzi": "不予",
+      "pinyin": "bùyǔ",
+      "meaning": "giữ lại, từ chối"
+    },
+    {
+      "level": 7,
+      "number": 3128,
+      "hanzi": "来之不易",
+      "pinyin": "lái zhī bù yì",
+      "meaning": "khó khăn mới có được"
+    },
+    {
+      "level": 7,
+      "number": 3828,
+      "hanzi": "居于",
+      "pinyin": "jū yú",
+      "meaning": "ở, nằm ở; giữ vị trí"
+    },
+    {
+      "level": 7,
+      "number": 4539,
+      "hanzi": "两翼",
+      "pinyin": "liǎng yì",
+      "meaning": "hai cánh; hai bên hỗ trợ"
+    },
+    {
+      "level": 7,
+      "number": 4693,
+      "hanzi": "压轴",
+      "pinyin": "yā zhòu",
+      "meaning": "tiết mục cuối nổi bật; chủ chốt"
+    },
+    {
+      "level": 7,
+      "number": 5528,
+      "hanzi": "精彩纷呈",
+      "pinyin": "jīng cǎi fēn chéng",
+      "meaning": "đặc sắc, phong phú nối tiếp nhau"
+    },
+    {
+      "level": 7,
+      "number": 5557,
+      "hanzi": "上半场",
+      "pinyin": "shàng bàn chǎng",
+      "meaning": "hiệp một, nửa đầu trận đấu"
+    },
+    {
+      "level": 7,
+      "number": 5579,
+      "hanzi": "下半场",
+      "pinyin": "xià bàn chǎng",
+      "meaning": "hiệp hai, nửa sau trận đấu"
+    }
+  ],
+  "suspiciousBefore": [
+    {
+      "level": 5,
+      "hanzi": "所",
+      "meaning": "nơi, chỗ; lượng từ cho cơ quan, trường học, bệnh viện; trợ từ trong cấu trúc “所 + động từ”"
+    },
+    {
+      "level": 6,
+      "hanzi": "所",
+      "meaning": "nơi, chỗ; lượng từ cho cơ quan, trường học, bệnh viện; trợ từ trong cấu trúc “所 + động từ”"
+    },
+    {
+      "level": 6,
+      "hanzi": "与其",
+      "meaning": "thay vì… (thường dùng trong cấu trúc “与其…不如…”)"
+    }
+  ],
+  "suspiciousAfter": [
+    {
+      "level": 1,
+      "hanzi": "面条儿",
+      "meaning": "mì sợi, mì; cách nói có âm uốn lưỡi của 面条"
+    },
+    {
+      "level": 5,
+      "hanzi": "所",
+      "meaning": "nơi, chỗ; lượng từ cho cơ quan, trường học, bệnh viện; trợ từ trong cấu trúc “所 + động từ”"
+    },
+    {
+      "level": 6,
+      "hanzi": "所",
+      "meaning": "nơi, chỗ; lượng từ cho cơ quan, trường học, bệnh viện; trợ từ trong cấu trúc “所 + động từ”"
+    },
+    {
+      "level": 6,
+      "hanzi": "与其",
+      "meaning": "thay vì… (thường dùng trong cấu trúc “与其…不如…”)"
+    }
+  ]
+}

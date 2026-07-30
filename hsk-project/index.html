@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#991b1b">
+    <title>学中文 - Tự Học Tiếng Trung HSK 3.0</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=20260728-vocabradicals1">
+</head>
+<body>
+<button class="sidebar-toggle" onclick="toggleAppSidebar()" aria-label="Mở danh mục học" aria-controls="appSidebar" aria-expanded="false">☰</button>
+<aside class="app-sidebar" id="appSidebar" aria-label="Danh mục học tập">
+    <button class="sidebar-brand" onclick="showPage('home')"><span>学</span><div><strong>Học tiếng Trung</strong><small>HSK 3.0 · 1-9</small></div></button>
+    <nav class="sidebar-menu">
+        <button class="side-link active" data-page="home" onclick="showPage('home')"><span>▦</span>Dashboard</button>
+        <p>HỌC TẬP</p>
+        <button class="side-link" onclick="startBeginner()"><span>✧</span>Người mới bắt đầu</button>
+        <button class="side-link" data-page="roadmap" onclick="showPage('roadmap')"><span>🎓</span>Giáo trình HSK 1-9</button>
+        <button class="side-link" data-page="quiz" onclick="showPage('quiz')"><span>☑</span>Luyện thi HSK</button>
+        <button class="side-link" data-page="study" onclick="showPage('study')"><span>📚</span>Từ vựng & ôn tập</button>
+        <button class="side-link" data-page="flashcard" onclick="showPage('flashcard')"><span>🃏</span>Flashcard</button>
+        <button class="side-link" data-page="grammar" onclick="showPage('grammar')"><span>文</span>Ngữ pháp</button>
+        <button class="side-link" data-page="listening" onclick="showPage('listening')"><span>🎧</span>Luyện nghe</button>
+        <button class="side-link" data-page="pronunciation" onclick="showPage('pronunciation')"><span>🎙</span>Luyện nói & phát âm</button>
+        <button class="side-link" data-page="writing" onclick="showPage('writing')"><span>✎</span>Luyện viết</button>
+        <button class="side-link" data-page="radicals" onclick="showPage('radicals')"><span>部</span>Bộ thủ</button>
+        <button class="side-link" data-page="stories" onclick="showPage('stories')"><span>阅</span>Truyện song ngữ</button>
+        <button class="side-link" data-page="translation" onclick="showPage('translation')"><span>译</span>Luyện dịch</button>
+    </nav>
+</aside>
+<div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleAppSidebar(false)"></div>
+
+
+<!-- HEADER -->
+<header class="header">
+    <div class="header-top">
+        <div class="logo" onclick="showPage('home')">
+            <div class="logo-icon">学</div>
+            <div class="logo-text">
+                <h1>学中文</h1>
+                <p>Tự học tiếng Trung HSK 3.0</p>
+            </div>
+        </div>
+        <div class="header-stats">
+            <div class="stat-badge">🔥 <span id="streakCount">0</span> ngày</div>
+            <div class="stat-badge">📚 <span id="learnedCount">0</span> từ đã học</div>
+        </div>
+    </div>
+    <nav class="nav" aria-label="Điều hướng chính">
+        <div class="nav-inner">
+            <button class="nav-btn active" onclick="showPage('home')">🏠 Trang chủ</button>
+            <button class="nav-btn" onclick="showPage('study')">📖 Từ vựng</button>
+            <button class="nav-btn" onclick="showPage('flashcard')">🃏 Flashcard</button>
+            <button class="nav-btn" onclick="showPage('quiz')">✍️ Kiểm tra</button>
+            <button class="nav-btn" onclick="showPage('writing')">🖊️ Luyện viết</button>
+            <button class="nav-btn" onclick="showPage('pronunciation')">🎙️ Phát âm</button>
+            <button class="nav-btn" onclick="showPage('roadmap')">🧭 Lộ trình</button>
+            <button class="nav-btn" onclick="showPage('grammar')">📝 Ngữ pháp</button>
+        </div>
+    </nav>
+</header>
+
+<!-- MAIN -->
+<main class="main" id="mainContent">
+
+    <!-- HOME PAGE -->
+    <div id="page-home" class="page active">
+        <div id="learningDashboard"></div>
+        <div class="hero">
+            <h2>Chào mừng đến với <span>学中文</span></h2>
+            <p>Giáo trình tự học bám đề cương thi HSK 3.0 công bố năm 2025, có từ vựng, ngữ pháp, viết, nghe và nói.</p>
+            <button class="hero-btn" onclick="startStudy(1)">🚀 Bắt đầu học ngay</button>
+        </div>
+
+        <div class="daily-sentence">
+            <div class="daily-label">📅 Câu mỗi ngày</div>
+            <div class="daily-zh" id="dailyZh">千里之行，始于足下。</div>
+            <div class="daily-py" id="dailyPy">Qiān lǐ zhī xíng, shǐ yú zú xià.</div>
+            <div class="daily-vi" id="dailyVi">Hành trình ngàn dặm bắt đầu từ một bước chân.</div>
+        </div>
+
+        <section class="standard-banner"><div><strong>Đang dùng: Đề cương thi HSK 3.0 mới (2025)</strong><p>Danh mục thi mới đang được thử nghiệm trong năm 2026; lịch thi HSK thường kỳ hiện vẫn có thể áp dụng HSK 2.0 tùy kỳ thi.</p></div><a href="https://www.chinesetest.cn/syllabus" target="_blank" rel="noopener">Xem nguồn chính thức ↗</a></section>
+<h3 class="section-title">📚 Chọn cấp độ HSK</h3>
+        <div class="levels-grid">
+            <div class="level-card hsk1" onclick="startStudy(1)">
+                <span class="level-badge">HSK 1</span>
+                <h3>HSK Cấp 1</h3>
+                <p>Xây nền phát âm và giao tiếp sinh hoạt cơ bản</p>
+                <div class="level-meta">
+                    <span>📚 301 mục/biến thể mới</span>
+                    <span>🎯 Chuẩn: 300 từ</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" id="prog1"></div></div>
+            </div>
+            <div class="level-card hsk2" onclick="startStudy(2)">
+                <span class="level-badge">HSK 2</span>
+                <h3>HSK Cấp 2</h3>
+                <p>Mở rộng hội thoại trong các tình huống quen thuộc</p>
+                <div class="level-meta">
+                    <span>📚 203 mục/biến thể mới</span>
+                    <span>🎯 Chuẩn: 500 từ</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" id="prog2"></div></div>
+            </div>
+            <div class="level-card hsk3" onclick="startStudy(3)">
+                <span class="level-badge">HSK 3</span>
+                <h3>HSK Cấp 3</h3>
+                <p>Giao tiếp độc lập và viết đoạn văn ngắn</p>
+                <div class="level-meta">
+                    <span>📚 506 mục/biến thể mới</span>
+                    <span>🎯 Chuẩn: 1.000 từ</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" id="prog3"></div></div>
+            </div>
+            <div class="level-card hsk4" onclick="startStudy(4)">
+                <span class="level-badge">HSK 4</span>
+                <h3>HSK Cấp 4</h3>
+                <p>Đọc nội dung phổ thông và trình bày có lý do</p>
+                <div class="level-meta">
+                    <span>📚 1.016 mục/biến thể mới</span>
+                    <span>🎯 Chuẩn: 2.000 từ</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" id="prog4"></div></div>
+            </div>
+            <div class="level-card hsk5" onclick="startStudy(5)">
+                <span class="level-badge">HSK 5</span>
+                <h3>HSK Cấp 5</h3>
+                <p>Đọc nội dung dài và thảo luận chủ đề trừu tượng</p>
+                <div class="level-meta">
+                    <span>📚 1.632 mục/biến thể mới</span>
+                    <span>🎯 Chuẩn: 3.600 từ</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" id="prog5"></div></div>
+            </div>
+
+            <div class="level-card hsk6" onclick="startStudy(6)">
+                <span class="level-badge">HSK 6</span><h3>HSK Cấp 6</h3>
+                <p>Đọc hiểu chuyên sâu, lập luận và giao tiếp học thuật - nghề nghiệp</p>
+                <div class="level-meta"><span>📚 1.810 mục mới</span><span>🎯 Khoảng 5.400 từ tích lũy</span></div>
+                <div class="progress-bar"><div class="progress-fill" id="prog6"></div></div>
+            </div>
+            <div class="level-card hsk7" onclick="startStudy(7)">
+                <span class="level-badge">HSK 7-9</span><h3>HSK Cao cấp 7-9</h3>
+                <p>Một kỳ thi chung; cấp 7, 8 hoặc 9 được xác định theo kết quả</p>
+                <div class="level-meta"><span>📚 5.605 mục nâng cao</span><span>🎯 Khoảng 11.000 từ tích lũy</span></div>
+                <div class="progress-bar"><div class="progress-fill" id="prog7"></div></div>
+            </div>
+        </div>
+
+        <h3 class="section-title">⚡ Chế độ luyện tập</h3>
+        <div class="features-grid">
+            <div class="feature-card" onclick="showPage('study')">
+                <div class="icon">📖</div>
+                <h4>Từ vựng</h4>
+                <p>Duyệt từ vựng theo chủ đề</p>
+            </div>
+            <div class="feature-card" onclick="showPage('flashcard')">
+                <div class="icon">🃏</div>
+                <h4>Flashcard</h4>
+                <p>Lật thẻ ghi nhớ từ vựng</p>
+            </div>
+            <div class="feature-card" onclick="showPage('quiz')">
+                <div class="icon">✍️</div>
+                <h4>Kiểm tra</h4>
+                <p>Trắc nghiệm kiểm tra</p>
+            </div>
+            <div class="feature-card" onclick="showPage('writing')">
+                <div class="icon">🖊️</div><h4>Luyện viết từ</h4><p>Nhớ mặt chữ và tự kiểm tra</p>
+            </div>
+            <div class="feature-card" onclick="showPage('radicals')">
+                <div class="icon">部</div><h4>Học bộ thủ</h4><p>Tra cứu bộ thủ, biến thể và chữ ví dụ</p>
+            </div>
+            <div class="feature-card" onclick="showPage('stories')">
+                <div class="icon">阅</div><h4>Truyện song ngữ</h4><p>Đọc Trung–Việt theo cấp HSK</p>
+            </div>
+            <div class="feature-card" onclick="showPage('pronunciation')">
+                <div class="icon">🎙️</div><h4>Tập phát âm</h4><p>Nghe mẫu và kiểm tra nhận dạng</p>
+            </div>            <div class="feature-card" onclick="showPage('roadmap')">
+                <div class="icon">🧭</div><h4>Lộ trình HSK</h4><p>Kế hoạch học từ HSK 1 đến HSK 9</p>
+            </div>            <div class="feature-card" onclick="showPage('grammar')">
+                <div class="icon">📝</div>
+                <h4>Ngữ pháp</h4>
+                <p>Cấu trúc ngữ pháp quan trọng</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- STUDY PAGE -->
+    <div id="page-study" class="page">
+        <div class="study-header">
+            <div class="study-title">
+                <button class="back-btn" aria-label="Quay lại" onclick="showPage('home')">←</button>
+                <h2 id="studyTitle">📖 Từ vựng HSK 1</h2>
+            </div>
+            <div class="study-controls">
+                <button class="ctrl-btn" onclick="showPage('flashcard')">🃏 Flashcard</button>
+                <button class="ctrl-btn" onclick="showPage('quiz')">✍️ Kiểm tra</button>
+            </div>
+        </div>
+        <div class="search-box">
+            <input type="text" id="searchInput" aria-label="Tìm từ vựng trong HSK 1–9" placeholder="Tìm toàn bộ HSK 1–9 (chữ Hán, pinyin, tiếng Việt)..." oninput="filterVocab()">
+        </div>
+        <div class="category-tabs" id="categoryTabs"></div>
+        <div class="vocab-grid" id="vocabGrid"></div>
+    </div>
+
+    <!-- FLASHCARD PAGE -->
+    <div id="page-flashcard" class="page">
+        <div class="study-header">
+            <div class="study-title">
+                <button class="back-btn" aria-label="Quay lại" onclick="showPage('home')">←</button>
+                <h2>🃏 Flashcard</h2>
+            </div>
+            <div class="study-controls" id="fcLevelBtns"></div>
+        </div>
+        <div class="flashcard-container" id="flashcardArea"></div>
+    </div>
+
+    <!-- QUIZ PAGE -->
+    <div id="page-quiz" class="page">
+        <div class="study-header">
+            <div class="study-title">
+                <button class="back-btn" aria-label="Quay lại" onclick="showPage('home')">←</button>
+                <h2>✍️ Kiểm tra trắc nghiệm</h2>
+            </div>
+            <div class="study-controls" id="quizLevelBtns"></div>
+        </div>
+        <div class="quiz-container" id="quizArea"></div>
+    </div>
+
+    <!-- WRITING PAGE -->
+    <div id="page-writing" class="page">
+        <div class="study-header"><div class="study-title"><button class="back-btn" aria-label="Quay lại" onclick="showPage('home')">←</button><h2>🖊️ Luyện viết từ vựng</h2></div><div class="study-controls" id="writingLevelBtns"></div></div>
+        <div class="practice-shell" id="writingArea"></div>
+    </div>
+
+    <!-- BILINGUAL STORIES PAGE -->
+    <div id="page-stories" class="page">
+        <div class="study-header"><div class="study-title"><button class="back-btn" aria-label="Quay lại" onclick="showPage('home')">←</button><h2>阅 Truyện song ngữ Trung–Việt</h2></div></div>
+        <div id="storiesContent"></div>
+    </div>
+
+    <!-- RADICALS PAGE -->
+    <div id="page-radicals" class="page">
+        <div class="study-header"><div class="study-title"><button class="back-btn" aria-label="Quay lại" onclick="showPage('home')">←</button><h2>部 Bộ thủ tiếng Trung</h2></div></div>
+        <div id="radicalsContent"></div>
+    </div>
+
+    <!-- PRONUNCIATION PAGE -->
+    <div id="page-pronunciation" class="page">
+        <div class="study-header"><div class="study-title"><button class="back-btn" aria-label="Quay lại" onclick="showPage('home')">←</button><h2>🎙️ Phòng luyện phát âm</h2></div><div class="study-controls" id="pronunciationLevelBtns"></div></div>
+        <div class="practice-shell" id="pronunciationArea"></div>
+        <p class="browser-note">Điểm số dựa trên nội dung mà trình duyệt nhận dạng, không phải phép đo âm học chính xác từng thanh điệu. Chrome/Edge hỗ trợ đầy đủ nhất; trong Zalo Android, hãy nghe mẫu hoặc mở bằng Chrome để dùng micro.</p>
+    </div>
+    <!-- LESSON PAGE -->
+    <div id="page-lesson" class="page">
+        <div class="study-header">
+            <div class="study-title"><button class="back-btn" aria-label="Quay lại" onclick="showPage('roadmap')">←</button><h2 id="lessonPageTitle">📘 Bài học theo lộ trình</h2></div>
+        </div>
+        <div id="lessonContent"></div>
+    </div>
+    <!-- ROADMAP PAGE -->
+    <div id="page-roadmap" class="page">
+        <div class="study-header">
+            <div class="study-title"><button class="back-btn" aria-label="Quay lại" onclick="showPage('home')">←</button><h2>🧭 Lộ trình HSK 3.0</h2></div>
+            <div class="study-controls" id="roadmapLevelBtns"></div>
+        </div>
+        <div id="roadmapContent"></div>
+    </div>
+    <!-- GRAMMAR PAGE -->
+    <div id="page-grammar" class="page">
+        <div class="study-header">
+            <div class="study-title">
+                <button class="back-btn" aria-label="Quay lại" onclick="showPage('home')">←</button>
+                <h2>📝 Ngữ pháp</h2>
+            </div>
+            <div class="study-controls" id="grammarLevelBtns"></div>
+        </div>
+        <div id="grammarContent"></div>
+    </div>
+
+    <div id="page-listening" class="page"><div class="study-header"><div class="study-title"><button class="back-btn" aria-label="Quay lại" onclick="showPage('home')">←</button><h2>🎧 Luyện nghe</h2></div><div class="study-controls" id="listeningLevelBtns"></div></div><div class="module-shell" id="listeningArea"></div></div>
+    <div id="page-translation" class="page"><div class="study-header"><div class="study-title"><button class="back-btn" aria-label="Quay lại" onclick="showPage('home')">←</button><h2>译 Luyện dịch Trung - Việt</h2></div><div class="study-controls" id="translationLevelBtns"></div></div><div class="module-shell" id="translationArea"></div></div>
+</main>
+
+<footer class="data-attribution"><span>Nguồn đối chiếu:</span> <a href="https://www.chinesetest.cn/syllabus" target="_blank" rel="noopener">Đề cương HSK chính thức</a> · <a href="https://cc-cedict.org/editor/editor.php?handler=Download" target="_blank" rel="noopener">CC-CEDICT / MDBG</a> · <a href="https://github.com/ph0ngp/CVDICT" target="_blank" rel="noopener">CVDICT (CC BY-SA 4.0)</a>. Nghĩa Việt được đối chiếu và biên tập cho ứng dụng.</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="vocabModal" role="dialog" aria-modal="true" aria-label="Chi tiết từ vựng" aria-hidden="true" onclick="closeModal(event)">
+    <div class="modal" id="modalContent"></div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/hsk30-2025.js?v=20260724-audio2" defer></script>
+<script src="assets/hsk3-reviewed-sources.js?v=20260726-user1" defer></script>
+<script src="assets/user-vocabulary-index.js?v=20260729-perf1" defer></script>
+<script src="assets/radicals-data.js?v=20260727-memory2" defer></script>
+<script src="tts-config.js?v=20260727-voice1" defer></script>
+<script src="app.js?v=20260729-perf1" defer></script>
+<script src="features.js?v=20260729-perf1" defer></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

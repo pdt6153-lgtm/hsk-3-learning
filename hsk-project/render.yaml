@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: hsk-chinese-learning
+    runtime: node
+    region: singapore
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: HSK_TTS_HOST
+        value: 0.0.0.0
+      - key: AZURE_SPEECH_KEY
+        sync: false
+      - key: AZURE_SPEECH_REGION
+        sync: false

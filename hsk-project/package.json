@@ -1,0 +1,16 @@
+{
+  "name": "hsk-chinese-learning",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Bilingual Chinese learning app with character-aware Azure TTS",
+  "scripts": {
+    "start": "node tools/tts-proxy.js",
+    "build:vocab-index": "node tools/build-vocabulary-index.js",
+    "audit": "node tools/audit.js",
+    "check": "node --check app.js && node --check features.js && node --check tools/tts-proxy.js && node --check tools/build-vocabulary-index.js && npm run audit"
+  },
+  "engines": {
+    "node": ">=20 <23"
+  },
+  "license": "UNLICENSED"
+}
